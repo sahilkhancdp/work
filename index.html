@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chadha Developer & Infrastructure</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo" onclick="goToHomePage(); closeMenu();">
+                <img src="logo.png.png" alt="Chadha Developers">
+            </h2>
+
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="goToHomePage(); closeMenu();">Home</a></li>
+                <li><a onclick="scrollToSection('about'); closeMenu();">About Us</a></li>
+                <li><a onclick="scrollToSection('services'); closeMenu();">Services</a></li>
+                <li><a onclick="scrollToSection('projects'); closeMenu();">Projects</a></li>
+                <!-- GALLERY & VIDEOS HEADER SE REMOVE KAR DIYE HAIN -->
+                <li><a onclick="scrollToSection('contact'); closeMenu();">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN PAGE -->
+    <div id="mainPage">
+
+        <!-- HERO SLIDER -->
+        <section class="hero-slider">
+            <div class="slide active">
+                <img src="background image/bg-1.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="background image/bg-2.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="background image/bg-3.png" alt="Slide 3">
+            </div>
+            <div class="slide">
+                <img src="background image/bg-5.png" alt="Slide 4">
+            </div>
+
+            <div class="slider-dots">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+                <div class="dot" onclick="goToSlide(2)"></div>
+                <div class="dot" onclick="goToSlide(3)"></div>
+            </div>
+        </section>
+
+        <!-- HERO TEXT + IMAGE -->
+        <section class="hero-text-section">
+            <div class="hero-image-side">
+                <img src="background image/bg-7.png" alt="Chadha Developers">
+            </div>
+            <div class="hero-text-side">
+                <div class="hero-badge">Since 2006</div>
+                <h1>Building The Future</h1>
+                <p>Excellence in Infrastructure & Real Estate Development</p>
+                <a onclick="scrollToSection('projects')" class="btn">Explore Projects</a>
+                <div class="hero-stats">
+                    <div class="hero-stat-item"><h3 data-count="25">0</h3><p>Years Experience</p></div>
+                    <div class="hero-stat-item"><h3 data-count="49" data-suffix="+">0+</h3><p>Projects Developed</p></div>
+                    <div class="hero-stat-item"><h3 data-count="3000" data-suffix="+">0+</h3><p>Happy Families</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="about hidden">
+            <h2>About Us</h2>
+            <p>Chadha Developers and Infrastructure Limited is one of the pioneering Indian real estate developers, established in 2006. With a strong presence across Mumbai, Punjab, and Delhi, the company has built a reputation for delivering affordable, smart, and modern living spaces. Focused on creating iconic residential and commercial developments, the company is now expanding its vision towards rejuvenating lifestyle experiences in Mumbai suburbs.</p>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats hidden">
+            <div class="stat-box"><h3 data-count="49" data-suffix="+">0+</h3><p>Projects Developed</p></div>
+            <div class="stat-box"><h3 data-count="25">0</h3><p>Years Experience</p></div>
+            <div class="stat-box"><h3 data-count="3000" data-suffix="+">0+</h3><p>Happy Families</p></div>
+            <div class="stat-box"><h3 data-count="3">0</h3><p>Key Locations</p></div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="services hidden">
+            <h2>Our Services</h2>
+            <div class="service-container">
+                <div class="service-card"><h3>🏢 Residential Projects</h3><p>Affordable apartments, villas aur gated societies jo modern lifestyle ke liye design ki gayi hain.</p></div>
+                <div class="service-card"><h3>🏬 Commercial Spaces</h3><p>Offices, malls aur business parks jo growth ko boost karte hain.</p></div>
+                <div class="service-card"><h3>🌱 Sustainable Design</h3><p>Eco-friendly construction jo future ke liye safe aur smart hai.</p></div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="projects" class="projects hidden">
+            <p class="section-tag">Best Works</p>
+            <h2>Our Portfolio</h2>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+                <button class="filter-btn" onclick="filterProjects('residential', this)">Residential</button>
+                <button class="filter-btn" onclick="filterProjects('commercial', this)">Commercial</button>
+                <button class="filter-btn" onclick="filterProjects('township', this)">Township</button>
+                <button class="filter-btn" onclick="filterProjects('hotels', this)">Hotels</button>
+            </div>
+
+            <div class="project-container" id="projectGrid">
+                <a class="project-card" data-category="residential" onclick="showProject('chadha-residency')">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" alt="Chadha Residency">
+                    <div class="project-card-body">
+                        <span class="project-category">Residential</span>
+                        <h3>Chadha Residency</h3>
+                        <p>Luxury Residential • Mumbai</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+                <a class="project-card" data-category="residential" onclick="showProject('canton-residency')">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800" alt="Canton Residency">
+                    <div class="project-card-body">
+                        <span class="project-category">Residential</span>
+                        <h3>Canton Residency</h3>
+                        <p>Premium Residential • Mumbai</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+                <a class="project-card" data-category="residential" onclick="showProject('chadha-heights')">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800" alt="Chadha Heights">
+                    <div class="project-card-body">
+                        <span class="project-category">Residential</span>
+                        <h3>Chadha Heights</h3>
+                        <p>Luxury Apartments • Delhi</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+                <a class="project-card" data-category="commercial" onclick="showProject('business-park')">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=800" alt="Chadha Business Park">
+                    <div class="project-card-body">
+                        <span class="project-category">Commercial</span>
+                        <h3>Chadha Business Park</h3>
+                        <p>Office Spaces • Delhi</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+                <a class="project-card" data-category="commercial" onclick="showProject('corporate-hub')">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800" alt="Chadha Corporate Hub">
+                    <div class="project-card-body">
+                        <span class="project-category">Commercial</span>
+                        <h3>Chadha Corporate Hub</h3>
+                        <p>Business Center • Mumbai</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+                <a class="project-card" data-category="township" onclick="showProject('chadha-township')">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Chadha Township">
+                    <div class="project-card-body">
+                        <span class="project-category">Township</span>
+                        <h3>Chadha Township</h3>
+                        <p>Integrated Township • Pune</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+                <a class="project-card" data-category="township" onclick="showProject('green-city')">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Chadha Green City">
+                    <div class="project-card-body">
+                        <span class="project-category">Township</span>
+                        <h3>Chadha Green City</h3>
+                        <p>Smart Township • Punjab</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+                <a class="project-card" data-category="hotels" onclick="showProject('best-western-hotel')">
+                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800" alt="Best Western Hotel">
+                    <div class="project-card-body">
+                        <span class="project-category">Hotels</span>
+                        <h3>Best Western Hotel & Banquet</h3>
+                        <p>Hospitality • Moga, Punjab</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+                <a class="project-card" data-category="hotels" onclick="showProject('chadha-grand-hotel')">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800" alt="Chadha Grand Hotel">
+                    <div class="project-card-body">
+                        <span class="project-category">Hotels</span>
+                        <h3>Chadha Grand Hotel</h3>
+                        <p>Luxury Stay • Mumbai</p>
+                        <span class="view-btn">View Details →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- VIDEOS (Yeh section page par rahega, bas header se link hataya hai) -->
+        <section id="videos" class="videos hidden">
+            <h2>Our Videos</h2>
+            <div class="video-container">
+                <div class="video-card">
+                    <video controls poster="">
+                        <source src="video1.mp4" type="video/mp4">
+                    </video>
+                    <h3>Chadha Residency Tour</h3>
+                    <p>Luxury Residential • Mumbai</p>
+                </div>
+                <div class="video-card">
+                    <video controls poster="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800">
+                        <source src="video2.mp4" type="video/mp4">
+                    </video>
+                    <h3>Canton Residency Walkthrough</h3>
+                    <p>Premium Residential • Mumbai</p>
+                </div>
+                <div class="video-card">
+                    <video controls poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800">
+                        <source src="video3.mp4" type="video/mp4">
+                    </video>
+                    <h3>Chadha Heights Preview</h3>
+                    <p>Luxury Apartments • Delhi</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials hidden">
+            <h2>What People Say?</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Chadha Developers delivered everything they promised. The quality of construction and the attention to detail in Chadha Residency is truly commendable. A trusted name in real estate."</p>
+                    <div class="testimonial-author"><div class="author-avatar">RS</div><div class="author-info"><h4>Rahul Sharma</h4><p>Home Buyer</p></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Investing in a Chadha project was the best financial decision I made. The returns have been great and the entire process was transparent and professional."</p>
+                    <div class="testimonial-author"><div class="author-avatar">PV</div><div class="author-info"><h4>Priya Verma</h4><p>Property Investor</p></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The team at Chadha Developers is responsive and truly understands what modern families need. Our experience at Canton Residency has been excellent from day one."</p>
+                    <div class="testimonial-author"><div class="author-avatar">AS</div><div class="author-info"><h4>Amit Singh</h4><p>Business Owner</p></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"From booking to possession, the process was seamless. The infrastructure quality at Chadha Raveria Vangani exceeded our expectations completely."</p>
+                    <div class="testimonial-author"><div class="author-avatar">NK</div><div class="author-info"><h4>Neha Kapoor</h4><p>Home Buyer</p></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"A company that values trust and quality above all. Our family is proud to be part of the Chadha community. Highly recommend to anyone looking for a home."</p>
+                    <div class="testimonial-author"><div class="author-avatar">GS</div><div class="author-info"><h4>Gurpreet Singh</h4><p>Home Buyer</p></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Outstanding project management and transparency throughout. Chadha Developers made our dream home a reality well within the committed timeline."</p>
+                    <div class="testimonial-author"><div class="author-avatar">RP</div><div class="author-info"><h4>Rohit Patil</h4><p>Property Investor</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY (Section rahega, bas header se link hataya hai) -->
+        <section id="gallery" class="gallery hidden">
+            <p class="section-tag">Latest Updates</p>
+            <h2>Construction Progress</h2>
+            <p class="gallery-desc">Real progress photos from our ongoing Chadha Residency project. Work is happening at full speed!</p>
+
+            <div class="gallery-slider-wrapper">
+                <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-card" onclick="openLightbox(0)"><img src="images/progress-1.jpg.jpeg" alt="Progress 1"></div>
+                    <div class="gallery-card" onclick="openLightbox(1)"><img src="images/progress-2.jpg.jpeg" alt="Progress 2"></div>
+                    <div class="gallery-card" onclick="openLightbox(2)"><img src="images/progress-3.jpg.jpeg" alt="Progress 3"></div>
+                    <div class="gallery-card" onclick="openLightbox(3)"><img src="images/progress-4.jpg.jpeg" alt="Progress 4"></div>
+                    <div class="gallery-card" onclick="openLightbox(4)"><img src="images/progress-5.jpg.jpeg" alt="Progress 5"></div>
+                    <div class="gallery-card" onclick="openLightbox(5)"><img src="images/progress-6.jpg.jpeg" alt="Progress 6"></div>
+                    <div class="gallery-card" onclick="openLightbox(6)"><img src="images/progress-7.jpg.jpeg" alt="Progress 7"></div>
+                    <div class="gallery-card" onclick="openLightbox(7)"><img src="images/progress-8.jpg.jpeg" alt="Progress 8"></div>
+                    <div class="gallery-card" onclick="openLightbox(8)"><img src="images/progress-9.jpg.jpeg" alt="Progress 9"></div>
+                    <div class="gallery-card" onclick="openLightbox(9)"><img src="images/progress-10.jpg.jpeg" alt="Progress 10"></div>
+                    <div class="gallery-card" onclick="openLightbox(10)"><img src="images/progress-11.jpg.jpeg" alt="Progress 11"></div>
+                    <div class="gallery-card" onclick="openLightbox(11)"><img src="images/progress-12.jpg.jpeg" alt="Progress 12"></div>
+                    <div class="gallery-card" onclick="openLightbox(12)"><img src="images/progress-13.jpg.jpeg" alt="Progress 13"></div>
+                    <div class="gallery-card" onclick="openLightbox(13)"><img src="images/progress-14.jpg.jpeg" alt="Progress 14"></div>
+                    <div class="gallery-card" onclick="openLightbox(14)"><img src="images/progress-15.jpg.jpeg" alt="Progress 15"></div>
+                    <div class="gallery-card" onclick="openLightbox(15)"><img src="images/progress-16.jpg.jpeg" alt="Progress 16"></div>
+                    <div class="gallery-card" onclick="openLightbox(16)"><img src="images/progress-17.jpg.jpeg" alt="Progress 17"></div>
+                    <div class="gallery-card" onclick="openLightbox(17)"><img src="images/progress-18.jpg.jpeg" alt="Progress 18"></div>
+                    <div class="gallery-card" onclick="openLightbox(18)"><img src="images/progress-19.jpg.jpeg" alt="Progress 19"></div>
+                    <div class="gallery-card" onclick="openLightbox(19)"><img src="images/progress-20.jpg.jpeg" alt="Progress 20"></div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="gallery-card" onclick="openLightbox(0)"><img src="images/progress-1.jpg.jpeg" alt="Progress 1"></div>
+                    <div class="gallery-card" onclick="openLightbox(1)"><img src="images/progress-2.jpg.jpeg" alt="Progress 2"></div>
+                    <div class="gallery-card" onclick="openLightbox(2)"><img src="images/progress-3.jpg.jpeg" alt="Progress 3"></div>
+                    <div class="gallery-card" onclick="openLightbox(3)"><img src="images/progress-4.jpg.jpeg" alt="Progress 4"></div>
+                    <div class="gallery-card" onclick="openLightbox(4)"><img src="images/progress-5.jpg.jpeg" alt="Progress 5"></div>
+                    <div class="gallery-card" onclick="openLightbox(5)"><img src="images/progress-6.jpg.jpeg" alt="Progress 6"></div>
+                    <div class="gallery-card" onclick="openLightbox(6)"><img src="images/progress-7.jpg.jpeg" alt="Progress 7"></div>
+                    <div class="gallery-card" onclick="openLightbox(7)"><img src="images/progress-8.jpg.jpeg" alt="Progress 8"></div>
+                    <div class="gallery-card" onclick="openLightbox(8)"><img src="images/progress-9.jpg.jpeg" alt="Progress 9"></div>
+                    <div class="gallery-card" onclick="openLightbox(9)"><img src="images/progress-10.jpg.jpeg" alt="Progress 10"></div>
+                    <div class="gallery-card" onclick="openLightbox(10)"><img src="images/progress-11.jpg.jpeg" alt="Progress 11"></div>
+                    <div class="gallery-card" onclick="openLightbox(11)"><img src="images/progress-12.jpg.jpeg" alt="Progress 12"></div>
+                    <div class="gallery-card" onclick="openLightbox(12)"><img src="images/progress-13.jpg.jpeg" alt="Progress 13"></div>
+                    <div class="gallery-card" onclick="openLightbox(13)"><img src="images/progress-14.jpg.jpeg" alt="Progress 14"></div>
+                    <div class="gallery-card" onclick="openLightbox(14)"><img src="images/progress-15.jpg.jpeg" alt="Progress 15"></div>
+                    <div class="gallery-card" onclick="openLightbox(15)"><img src="images/progress-16.jpg.jpeg" alt="Progress 16"></div>
+                    <div class="gallery-card" onclick="openLightbox(16)"><img src="images/progress-17.jpg.jpeg" alt="Progress 17"></div>
+                    <div class="gallery-card" onclick="openLightbox(17)"><img src="images/progress-18.jpg.jpeg" alt="Progress 18"></div>
+                    <div class="gallery-card" onclick="openLightbox(18)"><img src="images/progress-19.jpg.jpeg" alt="Progress 19"></div>
+                    <div class="gallery-card" onclick="openLightbox(19)"><img src="images/progress-20.jpg.jpeg" alt="Progress 20"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact hidden">
+            <h2>Get In Touch</h2>
+            <p>We are here to build the home of your dreams. Get in touch today!</p>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-item-text"><h4>Address</h4><p>Chadha Residency, MHADA Head Office, Kalanagar, Bandra (East), Mumbai – 400051</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-item-text"><h4>Phone</h4><p>+91 98765 43210</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-item-text"><h4>Email</h4><p>info@chadhainfra.com</p></div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <img id="lightboxImage" src="" alt="Lightbox">
+        <div class="lightbox-counter" id="lightboxCounter">1 / 20</div>
+    </div>
+
+    <!-- PROJECT DETAIL PAGE -->
+    <div id="projectPage" class="project-detail">
+        <section class="detail-hero" id="detailHero">
+            <div class="detail-hero-content">
+                <a onclick="showHome()" class="back-link">← Back to Projects</a>
+                <br>
+                <span class="detail-tag" id="detailTag">Category</span>
+                <h1 id="detailTitle">Project Title</h1>
+            </div>
+        </section>
+
+        <section class="detail-body hidden">
+            <div class="detail-container">
+                <div class="detail-main">
+                    <h2>Project Overview</h2>
+                    <p id="detailOverview">Description here...</p>
+                </div>
+                <div class="quick-facts-card">
+                    <h3>Quick Facts</h3>
+                    <div id="quickFactsList"></div>
+                    <a href="#contact" class="download-catalogue-btn" onclick="showHome()">Enquire Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block alt-bg hidden">
+            <h2>World-Class Amenities</h2>
+            <p class="section-desc">Premium amenities designed for modern lifestyle.</p>
+            <div class="amenities-grid" id="detailAmenities"></div>
+        </section>
+
+        <section class="section-block hidden">
+            <h2>Project Highlights</h2>
+            <p class="section-desc">What makes this project stand out.</p>
+            <div class="highlights-grid" id="detailHighlights"></div>
+        </section>
+
+        <section class="section-block alt-bg hidden">
+            <h2>Floor Plans & Details</h2>
+            <p class="section-desc">Comprehensive breakdown of the architectural layout and design.</p>
+            <div class="floor-accordion" id="detailFloors"></div>
+        </section>
+
+        <section class="contact">
+            <h2>Interested in This Project?</h2>
+            <p>Get in touch with us today for more details.</p>
+            <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+                <a onclick="showHome()" class="btn">← Back to All Projects</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Chadha Developers & Infrastructure Ltd. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
